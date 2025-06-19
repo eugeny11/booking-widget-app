@@ -11,11 +11,10 @@ const halls = [
   { id: 10, name: "Хромакей", image: "hall1.jpg" }
 ];
 
-document.querySelectorAll('.widget__hall-img-wrapper').forEach((wrapper, index) => {
-  const id = Number(wrapper.dataset.id) || index + 1;
-  const hallGroup = halls.filter(h => h.id === id || h.id % 5 === id % 5); // Примерная логика группировки
+document.querySelectorAll('.widget__hall-img-wrapper').forEach((wrapper) => {
+  const hallGroup = [...halls]; // один и тот же массив для всех карточек
   const img = wrapper.querySelector('.widget__hall-img');
-  const title = wrapper.closest('.widget__hall__card').querySelector('.booking-title');
+  const title = wrapper.closest('.widget__hall').querySelector('.booking-title');
   const left = wrapper.querySelector('.arrow--left');
   const right = wrapper.querySelector('.arrow--right');
 
@@ -49,6 +48,7 @@ document.querySelectorAll('.widget__hall-img-wrapper').forEach((wrapper, index) 
   right.addEventListener('click', next);
 });
 
+
  const popup = document.getElementById('app');
 
 document.querySelectorAll('.widget__hall__button').forEach((btn) => {
@@ -73,7 +73,6 @@ popup.addEventListener("click", (e) => {
 document.querySelector(".mobile__button--book")?.addEventListener("click", () => {
   document.getElementById("app").classList.remove("hidden");
 
-  // если у тебя mountApp() экспортируется глобально:
   if (typeof window.mountApp === "function") {
     window.mountApp();
   }
