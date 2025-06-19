@@ -1,0 +1,246 @@
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri/calibri.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri/calibri_bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Calibri', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.modal-open {
+  overflow: hidden !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none; 
+}
+
+p, span, strong, em, h1, h2, h3, h4, h5, h6, label, div {
+  cursor: default;
+}
+
+.wrapper__container{
+    max-width: 962px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 62px;
+    padding-bottom: 74px;
+    display: flex;
+    justify-content: center;
+}
+
+.widget__halls{
+    width: 100%;
+    display: flex;
+    max-width: 630px;
+    justify-content: space-between;
+}
+
+.widget__hall{
+    max-width: 240px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.widget__hall__card{
+    width: 100%;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.widget__hall-img{
+    width: 100%;
+    max-height: 158px;
+    height: 100%;
+    border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: block;
+}
+
+.widget__hall-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  width: 27px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0); 
+  border: none;
+  color: rgba(255, 255, 255, 0.9); 
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.arrow--left {
+  left: 0;
+}
+
+.arrow--right {
+  right: 0;
+}
+
+.widget__hall-img-wrapper:hover .arrow {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.widget__hall-booking{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 13px 16px;
+    border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background: #fff;
+  font-size: 15px;
+}
+
+.booking-title{
+    color: #18181b;
+    font-weight: 500;
+}
+
+.booking-price{
+    color: #3a3a3e;
+    font-weight: 400;
+}
+
+.widget__hall__button{
+    margin-top: 20px;
+    max-width: 145px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    color: #18181b;
+    font-size: 15px;
+    border-radius: 15px;
+    font-weight: 500;
+    background: #fff;
+    border: 2px solid #d5d5d5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.mobile__container{
+    display: none;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 520px){
+    .wrapper__container{
+        display: none;
+    }
+
+    .mobile__container{
+        margin: 0 auto;
+        max-width: 375px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 40px 0;
+    }
+
+    .mobile__buttons{
+        display: flex;
+        max-width: 340px;
+        background: #000;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .mobile__button{
+        width: 100%;
+        max-width: 156px;
+        min-width: 156px;
+        color: #434343;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 41px;
+        border-radius: 12px/10px;
+        font-size: 16px;
+        font-weight: 500;
+
+    }
+
+    .mobile__button--call{
+        background: #fff;
+    }
+
+    .mobile__button--book{
+        background: #ffca00;
+    }
+}
+
+@media only screen and (max-width: 340px){
+    .mobile__buttons{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "./react-app/static/css/main.421340b0.css",
+    "main.js": "./react-app/static/js/main.c66e75cf.js",
+    "static/media/hall3.jpg": "./react-app/static/media/hall3.3207ac4a5a116567c6ee.jpg",
+    "static/media/calibri.ttf": "./react-app/static/media/calibri.2eb4a8e3e62e2d790880.ttf",
+    "static/media/calibri_bold.ttf": "./react-app/static/media/calibri_bold.952f1ae64afe47a25173.ttf",
+    "static/media/hall2.jpg": "./react-app/static/media/hall2.a9023e4fec9cc9a95ddf.jpg",
+    "static/media/hall1.jpg": "./react-app/static/media/hall1.01379b166f634548ea00.jpg",
+    "static/media/services__light.jpg": "./react-app/static/media/services__light.09cd2a33dd798cba9d04.jpg",
+    "static/media/services__background.jpg": "./react-app/static/media/services__background.a1ac8f1b1ede7b1dad72.jpg",
+    "static/media/question.png": "./react-app/static/media/question.ca592e0521901767f69c.png",
+    "static/media/exclamation.png": "./react-app/static/media/exclamation.ff3ab1a58bb621094012.png",
+    "static/media/services__tripod.jpg": "./react-app/static/media/services__tripod.2df2d311a76ad7206070.jpg",
+    "index.html": "./react-app/index.html",
+    "main.421340b0.css.map": "./react-app/static/css/main.421340b0.css.map",
+    "main.c66e75cf.js.map": "./react-app/static/js/main.c66e75cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.421340b0.css",
+    "static/js/main.c66e75cf.js"
+  ]
+}
