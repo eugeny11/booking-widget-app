@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./react-app/static/css/main.421340b0.css",
-    "main.js": "./react-app/static/js/main.debfe01d.js",
+    "main.js": "./react-app/static/js/main.cd4b70ee.js",
     "static/media/hall3.jpg": "./react-app/static/media/hall3.3207ac4a5a116567c6ee.jpg",
     "static/media/calibri.ttf": "./react-app/static/media/calibri.2eb4a8e3e62e2d790880.ttf",
     "static/media/calibri_bold.ttf": "./react-app/static/media/calibri_bold.952f1ae64afe47a25173.ttf",
@@ -14,10 +14,10 @@
     "static/media/services__tripod.jpg": "./react-app/static/media/services__tripod.2df2d311a76ad7206070.jpg",
     "index.html": "./react-app/index.html",
     "main.421340b0.css.map": "./react-app/static/css/main.421340b0.css.map",
-    "main.debfe01d.js.map": "./react-app/static/js/main.debfe01d.js.map"
+    "main.cd4b70ee.js.map": "./react-app/static/js/main.cd4b70ee.js.map"
   },
   "entrypoints": [
     "static/css/main.421340b0.css",
-    "static/js/main.debfe01d.js"
+    "static/js/main.cd4b70ee.js"
   ]
 }

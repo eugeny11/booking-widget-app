@@ -49,31 +49,39 @@ document.querySelectorAll('.widget__hall-img-wrapper').forEach((wrapper) => {
 });
 
 
- const popup = document.getElementById('app');
+ const popupRoot = document.getElementById("app");
+let appMounted = false;
 
-document.querySelectorAll('.widget__hall__button').forEach((btn) => {
-  btn.addEventListener('click', () => {
-   
-    popup.classList.remove('hidden');
+// Показать модалку
+function openPopup() {
+  if (!appMounted && typeof window.mountApp === "function") {
+    window.mountApp();
+    appMounted = true;
+  }
 
-    if (typeof window.mountApp === 'function') {
-      window.mountApp();
+  // Подождать, пока React успеет отрисовать модалку
+  requestAnimationFrame(() => {
+    const overlay = popupRoot.querySelector(".modal-overlay");
+    if (overlay) {
+       console.log("overlay найден");
+      overlay.classList.remove("hidden");
     } else {
-      console.error("mountApp не определена");
+      console.error("Модалка не найдена внутри #app");
     }
   });
-});
+}
 
-popup.addEventListener("click", (e) => {
-  if (e.target === popup) {
-    popup.classList.add("hidden");
+// Скрытие при клике на фон
+popupRoot.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-overlay")) {
+    e.target.classList.add("hidden");
   }
 });
 
-document.querySelector(".mobile__button--book")?.addEventListener("click", () => {
-  document.getElementById("app").classList.remove("hidden");
-
-  if (typeof window.mountApp === "function") {
-    window.mountApp();
-  }
+// Кнопки бронирования для каждого зала
+document.querySelectorAll(".widget__hall__button").forEach((btn) => {
+  btn.addEventListener("click", openPopup);
 });
+
+// Кнопка бронирования в мобильной секции
+document.querySelector(".mobile__button--book")?.addEventListener("click", openPopup);
