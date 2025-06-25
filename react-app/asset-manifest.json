@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./react-app/static/css/main.72e9956b.css",
-    "main.js": "./react-app/static/js/main.f99e477d.js",
+    "main.css": "./react-app/static/css/main.8c3b4fb5.css",
+    "main.js": "./react-app/static/js/main.f3b6fb4f.js",
     "static/media/hall3.jpg": "./react-app/static/media/hall3.3207ac4a5a116567c6ee.jpg",
     "static/media/calibri.ttf": "./react-app/static/media/calibri.2eb4a8e3e62e2d790880.ttf",
     "static/media/calibri_bold.ttf": "./react-app/static/media/calibri_bold.952f1ae64afe47a25173.ttf",
@@ -13,11 +13,11 @@
     "static/media/exclamation.png": "./react-app/static/media/exclamation.ff3ab1a58bb621094012.png",
     "static/media/services__tripod.jpg": "./react-app/static/media/services__tripod.2df2d311a76ad7206070.jpg",
     "index.html": "./react-app/index.html",
-    "main.72e9956b.css.map": "./react-app/static/css/main.72e9956b.css.map",
-    "main.f99e477d.js.map": "./react-app/static/js/main.f99e477d.js.map"
+    "main.8c3b4fb5.css.map": "./react-app/static/css/main.8c3b4fb5.css.map",
+    "main.f3b6fb4f.js.map": "./react-app/static/js/main.f3b6fb4f.js.map"
   },
   "entrypoints": [
-    "static/css/main.72e9956b.css",
-    "static/js/main.f99e477d.js"
+    "static/css/main.8c3b4fb5.css",
+    "static/js/main.f3b6fb4f.js"
   ]
 }
