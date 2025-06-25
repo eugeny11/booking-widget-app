@@ -20,10 +20,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body.modal-open {
-  overflow: hidden !important;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -69,7 +65,7 @@ p, span, strong, em, h1, h2, h3, h4, h5, h6, label, div {
     width: 100%;
     display: flex;
     max-width: 630px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .widget__hall{
@@ -192,11 +188,6 @@ p, span, strong, em, h1, h2, h3, h4, h5, h6, label, div {
   justify-content: center;
   align-items: center;
 } */
-
-.hidden {
-  display: none;
-}
-
 
 
 @media only screen and (max-width: 520px){
