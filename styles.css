@@ -1,23 +1,8 @@
 
-@font-face {
-  font-family: 'Calibri';
-  src: url('fonts/Calibri/calibri.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Calibri';
-  src: url('fonts/Calibri/calibri_bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 body {
-  margin: 0;
-  font-family: 'Calibri', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Manrope', sans-serif;
 }
 
 code {
