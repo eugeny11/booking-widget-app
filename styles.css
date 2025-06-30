@@ -149,7 +149,7 @@ p, span, strong, em, h1, h2, h3, h4, h5, h6, label, div {
     font-weight: 500;
     background: #fff;
     border: 1px solid #d4d4d4;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.13);
     cursor: pointer;
 }
 
