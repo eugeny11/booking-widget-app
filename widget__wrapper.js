@@ -11,81 +11,84 @@ const halls = [
   { id: 10, name: "Хромакей", image: "hall1.jpg" }
 ];
 
-document.querySelectorAll('.widget__hall-img-wrapper').forEach((wrapper) => {
-  const hallGroup = [...halls]; // один и тот же массив для всех карточек
-  const img = wrapper.querySelector('.widget__hall-img');
-  const title = wrapper.closest('.widget__hall').querySelector('.booking-title');
-  const left = wrapper.querySelector('.arrow--left');
-  const right = wrapper.querySelector('.arrow--right');
+// Получаем элементы
+const wrapper = document.querySelector('.widget__hall-img-wrapper');
+const img = wrapper.querySelector('.widget__hall-img');
+const title = wrapper.closest('.widget__hall').querySelector('.booking-title');
+const left = wrapper.querySelector('.arrow--left');
+const right = wrapper.querySelector('.arrow--right');
 
-  let current = 0;
-  let interval;
+let current = 0;
+let interval;
 
-  function show(i) {
-    current = (i + hallGroup.length) % hallGroup.length;
-    img.src = hallGroup[current].image;
-    title.textContent = hallGroup[current].name;
+// Функция отображения текущего зала
+function show(i) {
+  current = (i + halls.length) % halls.length;
+  img.src = halls[current].image;
+  title.textContent = halls[current].name;
 
-     if (typeof window.setSelectedHallFromWidget === "function") {
-    window.setSelectedHallFromWidget(hallGroup[current].id);
+  if (typeof window.setSelectedHallFromWidget === "function") {
+    window.setSelectedHallFromWidget(halls[current].id);
   }
-  }
+}
 
-  function next() { show(current + 1); }
-  function prev() { show(current - 1); }
+// Управление
+function next() { show(current + 1); }
+function prev() { show(current - 1); }
 
-  function startAuto() {
-    stopAuto();
-    interval = setInterval(next, 3000);
-  }
+function startAuto() {
+  console.log("Запуск автопрокрутки");
+  stopAuto();
+  interval = setInterval(next, 3000);
+}
 
-  function stopAuto() {
-    if (interval) clearInterval(interval);
-  }
+function stopAuto() {
+  console.log("Остановка автопрокрутки");
+  if (interval) clearInterval(interval);
+}
 
-  show(0);
-  startAuto();
+window.startAuto = startAuto;
+window.stopAuto = stopAuto;
 
-  wrapper.addEventListener('mouseenter', stopAuto);
-  wrapper.addEventListener('mouseleave', startAuto);
-  left.addEventListener('click', prev);
-  right.addEventListener('click', next);
-});
+// Инициализация
+show(0);
+startAuto();
 
+// Наведение для паузы
+wrapper.addEventListener('mouseenter', stopAuto);
+wrapper.addEventListener('mouseleave', startAuto);
+left.addEventListener('click', prev);
+right.addEventListener('click', next);
 
- const popupRoot = document.getElementById("app");
+// Работа с модалкой
+const popupRoot = document.getElementById("app");
 let appMounted = false;
 
-// Показать модалку
 function openPopup() {
   if (!appMounted && typeof window.mountApp === "function") {
     window.mountApp();
     appMounted = true;
   }
 
-  // Подождать, пока React успеет отрисовать модалку
   requestAnimationFrame(() => {
     const overlay = popupRoot.querySelector(".modal-overlay");
     if (overlay) {
-       console.log("overlay найден");
+      console.log("overlay найден");
       overlay.classList.remove("hidden");
+      stopAuto(); // Останавливаем автопрокрутку при открытии модалки
     } else {
       console.error("Модалка не найдена внутри #app");
     }
   });
 }
 
-// Скрытие при клике на фон
-popupRoot.addEventListener("click", (e) => {
+/* popupRoot.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal-overlay")) {
     e.target.classList.add("hidden");
+    startAuto(); // Возобновляем автопрокрутку при закрытии модалки
   }
 });
-
-// Кнопки бронирования для каждого зала
-document.querySelectorAll(".widget__hall__button").forEach((btn) => {
-  btn.addEventListener("click", openPopup);
-});
-
-// Кнопка бронирования в мобильной секции
+ */
+// Кнопки для открытия модалки
+document.querySelector(".widget__hall__button")?.addEventListener("click", openPopup);
 document.querySelector(".mobile__button--book")?.addEventListener("click", openPopup);
