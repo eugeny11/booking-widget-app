@@ -25,6 +25,10 @@ document.querySelectorAll('.widget__hall-img-wrapper').forEach((wrapper) => {
     current = (i + hallGroup.length) % hallGroup.length;
     img.src = hallGroup[current].image;
     title.textContent = hallGroup[current].name;
+
+     if (typeof window.setSelectedHallFromWidget === "function") {
+    window.setSelectedHallFromWidget(hallGroup[current].id);
+  }
   }
 
   function next() { show(current + 1); }
