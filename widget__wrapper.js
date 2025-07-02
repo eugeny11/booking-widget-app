@@ -27,9 +27,11 @@ function show(i) {
   img.src = halls[current].image;
   title.textContent = halls[current].name;
 
+  console.log("ВИДЖЕТ: показываю зал с ID:", halls[current].id);
+
   if (typeof window.setSelectedHallFromWidget === "function") {
     window.setSelectedHallFromWidget(halls[current].id);
-  }
+  } 
 }
 
 // Управление
@@ -37,13 +39,11 @@ function next() { show(current + 1); }
 function prev() { show(current - 1); }
 
 function startAuto() {
-  console.log("Запуск автопрокрутки");
   stopAuto();
   interval = setInterval(next, 3000);
 }
 
 function stopAuto() {
-  console.log("Остановка автопрокрутки");
   if (interval) clearInterval(interval);
 }
 
@@ -53,6 +53,7 @@ window.stopAuto = stopAuto;
 // Инициализация
 show(0);
 startAuto();
+
 
 // Наведение для паузы
 wrapper.addEventListener('mouseenter', stopAuto);
@@ -73,22 +74,13 @@ function openPopup() {
   requestAnimationFrame(() => {
     const overlay = popupRoot.querySelector(".modal-overlay");
     if (overlay) {
-      console.log("overlay найден");
       overlay.classList.remove("hidden");
-      stopAuto(); // Останавливаем автопрокрутку при открытии модалки
-    } else {
-      console.error("Модалка не найдена внутри #app");
-    }
+      stopAuto();
+      show(current);
+    } 
   });
 }
 
-/* popupRoot.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal-overlay")) {
-    e.target.classList.add("hidden");
-    startAuto(); // Возобновляем автопрокрутку при закрытии модалки
-  }
-});
- */
 // Кнопки для открытия модалки
 document.querySelector(".widget__hall__button")?.addEventListener("click", openPopup);
 document.querySelector(".mobile__button--book")?.addEventListener("click", openPopup);
